@@ -1,16 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const Calcultaion = require('./models/Calculation');
+const Calculation = require('./models/Calculation');
 const cors = require('cors');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/calculatorDB',{
-    useNewUrlParser : true,
-    useUnifiedTopology:true
-});
+mongoose.connect('mongodb://localhost:27017/calculatorDB');
 
 app.post('/calculate',async(req,res)=>
 {
@@ -49,4 +46,4 @@ app.post('/calculate',async(req,res)=>
     res.json({result});
 });
 
-app.listen(500,()=>console.log('server running on port 5000'));
+app.listen(5000,()=>console.log('server running on port 5000'));
